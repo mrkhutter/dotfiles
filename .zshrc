@@ -1,7 +1,11 @@
+#init rbenv
+eval "$(rbenv init -)"
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/markhutter/.oh-my-zsh
+export GOPATH=$HOME/go
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin" # Add RVM to PATH for scripting
-source $HOME/.rvm/scripts/rvm
+#source $HOME/.rvm/scripts/rvm
+
 
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
@@ -10,7 +14,7 @@ bindkey "^[^[[D" backward-word
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="honukai"
+ZSH_THEME="honukai"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -104,11 +108,14 @@ alias rc="rails c"
 alias rs="rails s"
 alias review="git diff development"
 alias startday="vim ~/morning_checklist.txt"
+alias keepup="vim ~/keepup.txt"
+alias wkp="vim ~/wk_priorities.txt"
 alias v="nvim"
-alias grade="sh /Users/markhutter/code/shipt/weaponslocker/grade_take_homes.sh"
 alias hs="history | grep "
-alias memberapi="cd ~/code/shipt/memberapi"
-alias shopperapi="cd ~/code/shipt/shopperapi"
-alias admin="cd ~/code/shipt/admin"
+alias dl="cd ~/Downloads"
 alias wer="bundle exec rspec "
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
+alias gpall="find . -type d -depth 1 -exec echo git --git-dir={}/.git --work-tree=$PWD/{} status \;"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

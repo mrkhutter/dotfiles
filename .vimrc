@@ -12,14 +12,17 @@ Plugin 'VundleVim/Vundle.vim'
 " " Keep Plugin commands between vundle#begin/end.
 " " plugin on GitHub repo
 " " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'tpope/vim-fugitive'
 Plugin 'davidklsn/vim-sialoquent'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
+Plugin 'radenling/vim-dispatch-neovim'
 Plugin 'junegunn/fzf'
 Plugin 'L9'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-jdaddy'
+Plugin 'fatih/vim-go'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -70,8 +73,10 @@ let mapleader = ","
 nnoremap <C-n> :call NumberToggle()<cr>
 map <C-k> :NERDTreeToggle<CR>
 map <C-p> :FZF<CR>
+map <C-f> :FZF ../<CR>
 map <C-h> :tabp<CR>
 map <C-l> :tabn<CR>
+map <C-y> :vsplit %<CR>
 
 " Settings:
 filetype plugin indent on   " Automatically detect file types.

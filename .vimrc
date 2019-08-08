@@ -1,61 +1,71 @@
-
+" Specify a directory for Plugs
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'Plug'
+call plug#begin('~/.vim/plugged')
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" " alternatively, pass a path where Vundle should install Plugs
 " "call vundle#begin('~/some/path/here')
 "
 " " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plug 'VundleVim/Vundle.vim'
 "
 " " The following are examples of different formats supported.
-" " Keep Plugin commands between vundle#begin/end.
-" " plugin on GitHub repo
-" " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'davidklsn/vim-sialoquent'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-dispatch'
-Plugin 'radenling/vim-dispatch-neovim'
-Plugin 'junegunn/fzf'
-Plugin 'L9'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'fatih/vim-go'
+" " Keep Plug commands between vundle#begin/end.
+" " Plug on GitHub repo
+" " Plug from http://vim-scripts.org/vim/scripts.html
+Plug 'dense-analysis/ale'
+Plug 'davidklsn/vim-sialoquent'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'junegunn/fzf'
+Plug 'vim-scripts/L9'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-jdaddy'
+Plug 'fatih/vim-go'
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
-Plugin 'ngmy/vim-rubocop'
-" " Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
+Plug 'ngmy/vim-rubocop'
+Plug 'tpope/vim-rake'
+
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} " Language Server support
+Plug 'vim-ruby/vim-ruby' " For Facts, Ruby functions, and custom providers
+" "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" " Git Plug not hosted on GitHub
+" Plug 'git://git.wincent.com/command-t.git'
+" " git repos on your local machine (i.e. when working on your own Plug)
+" Plug 'file:///home/gmarik/path/to/Plug'
 " " The sparkup vim script is in a subdirectory of this repo called vim.
 " " Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+" Plug 'ascenator/L9', {'name': 'newL9'}
 "
-" " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" " All of your Plugs must be added before the following line
+" call vundle#end()            " required
+call plug#end()
 
-filetype plugin indent on    " required
-" " To ignore plugin indent changes, instead use:
-" "filetype plugin on
+" filetype Plug indent on    " required
+" " To ignore Plug indent changes, instead use:
+" "filetype Plug on
 " "
 " " Brief help
-" " :PluginList       - lists configured plugins
-" " :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" " :PluginClean      - confirms removal of unused plugins; append `!` to
+" " :PlugList       - lists configured Plugs
+" " :PlugInstall    - installs Plugs; append `!` to update or just
+" :PlugUpdate
+" " :PlugSearch foo - searches for foo; append `!` to refresh local cache
+" " :PlugClean      - confirms removal of unused Plugs; append `!` to
 " auto-approve removal
 " "
 " " see :h vundle for more details or wiki for FAQ
-" " Put your non-Plugin stuff after this lineset nocompatible
+" " Put your non-Plug stuff after this lineset nocompatible
 
 set relativenumber
 
@@ -79,11 +89,15 @@ map <C-l> :tabn<CR>
 map <C-y> :vsplit %<CR>
 
 " Settings:
-filetype plugin indent on   " Automatically detect file types.
+" filetype Plug indent on   " Automatically detect file types.
 syntax on                   " Syntax highlighting
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 scriptencoding utf-8
+
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {'ruby': ['standardrb']}
+let g:ale_fix_on_save = 1
 
 set autoindent                  " Indent at the same level of the previous line
 set breakindent
@@ -107,5 +121,7 @@ set pastetoggle=<F12>
 syntax on
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
-filetype plugin indent on
+" filetype Plug indent on
 colorscheme spring-night
+
+

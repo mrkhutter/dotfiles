@@ -1,0 +1,24 @@
+My Morning Checklist
+====================
+
+Sweep
+-----
+
+[ ] Process personal email inbox (remember 2-minute rule)
+[ ] Process work email inbox (remember 2-minute rule)
+[ ] Process Slack notifications
+[ ] Check work calendar, anything pressing?
+[ ] Review pull requests
+[ ] Review Notion board
+
+Process
+-------
+
+[ ] Process Todos.txt
+
+Start
+-----
+
+[ ] Close Slack / IRC / Messages
+[ ] Enable Do Not Disturb
+[ ] Pick one and start working!

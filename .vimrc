@@ -27,6 +27,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-jdaddy'
 Plug 'fatih/vim-go'
+Plug 'elzr/vim-json'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -78,7 +79,10 @@ function! NumberToggle()
   endfunc
 
 let mapleader = ","
-
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {'ruby': ['standardrb']}
+let g:ale_fix_on_save = 1
+let g:vim_json_syntax_conceal = 0
 
 nnoremap <C-n> :call NumberToggle()<cr>
 map <C-k> :NERDTreeToggle<CR>
@@ -95,9 +99,6 @@ set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 scriptencoding utf-8
 
-let g:ale_linters = {'ruby': ['standardrb']}
-let g:ale_fixers = {'ruby': ['standardrb']}
-let g:ale_fix_on_save = 1
 
 set autoindent                  " Indent at the same level of the previous line
 set breakindent

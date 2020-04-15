@@ -28,6 +28,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-jdaddy'
 Plug 'fatih/vim-go'
 Plug 'elzr/vim-json'
+Plug 'rizzatti/dash.vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -37,6 +38,9 @@ Plug 'tpope/vim-rake'
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} " Language Server support
 Plug 'vim-ruby/vim-ruby' " For Facts, Ruby functions, and custom providers
+Plug 'posva/vim-vue'
+
+Plug 'marcopaganini/termschool-vim-theme'
 " "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " " Git Plug not hosted on GitHub
 " Plug 'git://git.wincent.com/command-t.git'
@@ -69,6 +73,7 @@ call plug#end()
 " " Put your non-Plug stuff after this lineset nocompatible
 
 set relativenumber
+set number
 
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -123,6 +128,7 @@ syntax on
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 " filetype Plug indent on
-colorscheme spring-night
+" colorscheme spring-night
+colorscheme termschool
 
 

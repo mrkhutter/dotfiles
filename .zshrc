@@ -1,9 +1,11 @@
 #init rbenv
-eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#export PATH=/usr/local/bin:$PATH
+eval "$(rbenv init -)" 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/markhutter/.oh-my-zsh
 export GOPATH=$HOME/go
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin" # Add RVM to PATH for scripting
+export PATH=~/.local/bin:$PATH
 #source $HOME/.rvm/scripts/rvm
 
 
@@ -15,6 +17,7 @@ bindkey "^[^[[D" backward-word
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="honukai"
+#ZSH_THEME="agnosterzak"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -94,39 +97,55 @@ source $ZSH/oh-my-zsh.sh
 alias git="noglob git"
 alias pg="pgcli "
 # alias vim="/usr/local/Cellar/vim/"
+alias zz="nvim ~/.zshrc"
 alias reload="source ~/.zshrc"
 alias gpo="git pull origin "
 alias gs="git status"
 alias dev="development"
 alias mr="master"
 alias gco="git checkout "
+alias gcb="git checkout - "
 alias br="git branch"
 alias gpush="git push origin "
+alias gpushf="git push --force-with-lease origin "
 alias gcommit="git commit -m '$1'"
-alias gprune="git branch --merged | grep -v "\*" | xargs -n 1 git branch -d"
+alias gprune="git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
 alias bi="bundle install"
 alias rc="rails c"
 alias rs="rails s"
-alias dbm="rake db:migrate"
+alias setdev="rails db:environment:set RAILS_ENV=development"
+alias grd="git rebase development"
+alias grs="git rebase --skip"
+alias grc="git rebase --continue"
+alias gra="git rebase --abort"
+alias ga= "git add '$1'"
+alias dbm="rake db:migrate && rails db:schema:dump"
 alias dbs="rake db:setup"
 alias dbc="rake db:create"
 alias dbd="rake db:drop"
+alias rr="rake routes"
 alias review="git diff development"
 alias v="nvim"
 alias hs="history | grep "
 alias dl="cd ~/Downloads"
+alias sv="cd ~/code/calizahq"
 alias code="cd ~/code"
-alias work=""
-alias pgstage=""
-alias pgprod=""
-alias pglocal="psql -h localhost -d '$1'"
+alias work="cd ~/code/calizahq/Homesie/"
+alias opensrc="cd ~/code/opensrc/"
+alias pgstage="heroku pg:psql postgresql-asymmetrical-83444 --app homesie-staging"
+alias pgprod="heroku pg:psql postgresql-dimensional-68055 --app homesie"
+alias hrc="heroku run rails c -a '$1'"
+alias hlogs="heroku logs -t -n 5000 -a '$1'"
+alias pglocal="psql -h localhost -d homesie_development"
 alias td="nvim ~/todos.txt"
 alias resettd="cp ~/basetodos.txt ~/todos.txt"
 alias cptd="sh ~/cptd.sh"
 alias wer="bundle exec rspec "
+alias sbranch="git branch | fzf | xargs git checkout"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
 alias gpall="find . -type d -depth 1 -exec echo git --git-dir={}/.git --work-tree=$PWD/{} status \;"
 alias start="nvim ~/.dotfiles/morning_checklist.txt"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"

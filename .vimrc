@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 " " Keep Plug commands between vundle#begin/end.
 " " Plug on GitHub repo
 " " Plug from http://vim-scripts.org/vim/scripts.html
+Plug 'marcopaganini/termschool-vim-theme'
 Plug 'dense-analysis/ale'
 Plug 'davidklsn/vim-sialoquent'
 Plug 'tpope/vim-fugitive'
@@ -35,8 +36,7 @@ Plug 'mxw/vim-jsx'
 
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-rake'
-
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} " Language Server support
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'vim-ruby/vim-ruby' " For Facts, Ruby functions, and custom providers
 Plug 'posva/vim-vue'
 
@@ -84,8 +84,8 @@ function! NumberToggle()
   endfunc
 
 let mapleader = ","
-let g:ale_linters = {'ruby': ['standardrb']}
-let g:ale_fixers = {'ruby': ['standardrb']}
+let g:ale_linters = {'ruby': ['rubocop']}
+let g:ale_fixers = {'ruby': ['rubocop']}
 let g:ale_fix_on_save = 1
 let g:vim_json_syntax_conceal = 0
 

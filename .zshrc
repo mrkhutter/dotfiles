@@ -1,12 +1,15 @@
-#init rbenv
+# init rbenv
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #export PATH=/usr/local/bin:$PATH
 eval "$(rbenv init -)" 
 # Path to your oh-my-zsh installation.
+export ZSH_DISABLE_COMPFIX=true
 export ZSH=/Users/markhutter/.oh-my-zsh
 export GOPATH=$HOME/go
 export PATH=~/.local/bin:$PATH
+export USER=""
 #source $HOME/.rvm/scripts/rvm
+#export EDITOR="vim" --servername PSQL --remote-tab-wait
 
 
 bindkey "^[^[[C" forward-word
@@ -94,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ctags="`brew --prefix`/bin/ctags"
 alias git="noglob git"
 alias pg="pgcli "
 # alias vim="/usr/local/Cellar/vim/"
@@ -130,20 +134,22 @@ alias hs="history | grep "
 alias dl="cd ~/Downloads"
 alias sv="cd ~/code/calizahq"
 alias code="cd ~/code"
-alias work="cd ~/code/calizahq/Homesie/"
+alias work="cd ~/code/calizahq/Landing/"
 alias opensrc="cd ~/code/opensrc/"
-alias pgstage="heroku pg:psql postgresql-asymmetrical-83444 --app homesie-staging"
-alias pgprod="heroku pg:psql postgresql-dimensional-68055 --app homesie"
+alias pgstage="heroku pg:psql postgresql-acute-89319 --app hello-landing-staging"
+alias pgprod="heroku pg:psql postgresql-dimensional-68055 --app hello-landing"
 alias hrc="heroku run rails c -a '$1'"
 alias hlogs="heroku logs -t -n 5000 -a '$1'"
 alias pglocal="psql -h localhost -d homesie_development"
+alias pgtest="psql -h localhost -d homesie_test"
 alias td="nvim ~/todos.txt"
+alias tdtd="nvim -p ~/today.txt ~/todos.txt"
 alias resettd="cp ~/basetodos.txt ~/todos.txt"
 alias cptd="sh ~/cptd.sh"
 alias wer="bundle exec rspec "
 alias sbranch="git branch | fzf | xargs git checkout"
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pgstop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
+alias pgstart="pg_ctl -D /usr/local/var/postgresql@11 -l /usr/local/var/postgresql@11/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgresql@11 -l /usr/local/var/postgresql@11/server.log stop"
 alias gpall="find . -type d -depth 1 -exec echo git --git-dir={}/.git --work-tree=$PWD/{} status \;"
 alias start="nvim ~/.dotfiles/morning_checklist.txt"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

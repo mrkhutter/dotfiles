@@ -8,9 +8,12 @@ export ZSH=/Users/markhutter/.oh-my-zsh
 export GOPATH=$HOME/go
 export PATH=~/.local/bin:$PATH
 export USER=""
+export AWS_SSO_USERNAME="mark.hutter"
 #source $HOME/.rvm/scripts/rvm
 #export EDITOR="vim" --servername PSQL --remote-tab-wait
-
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
@@ -130,11 +133,14 @@ alias dbd="rake db:drop"
 alias rr="rake routes"
 alias review="git diff development"
 alias v="nvim"
-alias hs="history | grep "
+alias hs="history | grep xargs"
 alias dl="cd ~/Downloads"
 alias sv="cd ~/code/calizahq"
 alias code="cd ~/code"
 alias work="cd ~/code/calizahq/Landing/"
+alias web="cd ~/code/calizahq/landing_web/"
+alias direct="cd ~/code/calizahq/landing_direct/"
+alias infra="cd ~/code/calizahq/dev_tools/"
 alias opensrc="cd ~/code/opensrc/"
 alias pgstage="heroku pg:psql postgresql-acute-89319 --app hello-landing-staging"
 alias pgprod="heroku pg:psql postgresql-dimensional-68055 --app hello-landing"
@@ -148,6 +154,7 @@ alias resettd="cp ~/basetodos.txt ~/todos.txt"
 alias cptd="sh ~/cptd.sh"
 alias wer="bundle exec rspec "
 alias sbranch="git branch | fzf | xargs git checkout"
+# alias struct="sort db/structure.sql | uniq -c | grep -v '^ *1 ' | grep -E \"\(\'\d'\)\"
 alias pgstart="pg_ctl -D /usr/local/var/postgresql@11 -l /usr/local/var/postgresql@11/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgresql@11 -l /usr/local/var/postgresql@11/server.log stop"
 alias gpall="find . -type d -depth 1 -exec echo git --git-dir={}/.git --work-tree=$PWD/{} status \;"

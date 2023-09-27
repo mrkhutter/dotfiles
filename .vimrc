@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'marcopaganini/termschool-vim-theme'
 Plug 'dense-analysis/ale'
 Plug 'davidklsn/vim-sialoquent'
-Plug 'tpope/vim-fugitive'
+" " Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'junegunn/fzf'
@@ -36,11 +36,12 @@ Plug 'mxw/vim-jsx'
 
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-rake'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-ruby/vim-ruby' " For Facts, Ruby functions, and custom providers
 Plug 'posva/vim-vue'
 
 Plug 'marcopaganini/termschool-vim-theme'
+Plug 'shaunsingh/nord.nvim'
 " "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " " Git Plug not hosted on GitHub
 " Plug 'git://git.wincent.com/command-t.git'
@@ -129,6 +130,6 @@ syntax on
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 " filetype Plug indent on
 " colorscheme spring-night
-colorscheme termschool
+colorscheme nord
 
 
